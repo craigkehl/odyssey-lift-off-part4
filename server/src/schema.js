@@ -52,6 +52,21 @@ const typeDefs = gql`
     "The module's video url, for video-based modules"
     videoUrl: String
   }
+
+  type Mutation {
+    incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+  }
+
+  type IncrementTrackViewsResponse {
+    "Status of the mutation"
+    code: Int!
+    "Indicates if the mutation was successful"
+    success: Boolean!
+    "Human-readable message for the UI"
+    message: String!
+    "Newly updated track after a successful mutation"
+    track: Track
+  }
 `;
 
 module.exports = typeDefs;
